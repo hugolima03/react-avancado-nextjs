@@ -7,7 +7,6 @@ import ReviewCard from 'components/ReviewCard'
 
 import * as S from './styles'
 import { SectionReviewsProps } from 'types/api'
-import { getImageUrl } from 'utils/getImageUrl'
 
 const settings = {
   dots: true,
@@ -36,13 +35,13 @@ const SectionReviews = ({ title, reviews }: SectionReviewsProps) => (
     <Heading reverseColor>{title}</Heading>
     <S.Content>
       <Slider {...settings}>
-        {reviews.map(({ name, photo, text }, index) => {
+        {reviews.map(({ name, photo, review }, index) => {
           return (
             <ReviewCard
               key={name}
               name={name}
-              photo={photo.url}
-              description={text}
+              photo={photo?.data?.attributes.url}
+              description={review}
               id={index}
             />
           )

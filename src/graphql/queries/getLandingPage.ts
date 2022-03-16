@@ -1,8 +1,12 @@
 const GET_LANDING_PAGE = /* GraphQL */ `
   fragment logo on LandingPage {
     logo {
-      alternativeText
-      url
+      data {
+        attributes {
+          url
+          alternativeText
+        }
+      }
     }
   }
 
@@ -15,8 +19,12 @@ const GET_LANDING_PAGE = /* GraphQL */ `
         url
       }
       image {
-        alternativeText
-        url
+        data {
+          attributes {
+            alternativeText
+            url
+          }
+        }
       }
     }
   }
@@ -26,8 +34,12 @@ const GET_LANDING_PAGE = /* GraphQL */ `
       title
       description
       image {
-        alternativeText
-        url
+        data {
+          attributes {
+            alternativeText
+            url
+          }
+        }
       }
     }
   }
@@ -37,7 +49,11 @@ const GET_LANDING_PAGE = /* GraphQL */ `
       title
       techIcons {
         icon {
-          url
+          data {
+            attributes {
+              url
+            }
+          }
         }
         title
       }
@@ -88,17 +104,25 @@ const GET_LANDING_PAGE = /* GraphQL */ `
     sectionAboutUs {
       title
       authors {
-        photo {
-          alternativeText
-          url
+        data {
+          attributes {
+            photo {
+              data {
+                attributes {
+                  alternativeText
+                  url
+                }
+              }
+            }
+            name
+            role
+            description
+            socialLinks {
+              title
+              url
+            }
+          }
         }
-        name
-        role
-        socialLinks {
-          title
-          url
-        }
-        description
       }
     }
   }
@@ -108,10 +132,14 @@ const GET_LANDING_PAGE = /* GraphQL */ `
       title
       reviews {
         name
-        text
+        review
         photo {
-          url
-          alternativeText
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
         }
       }
     }
@@ -129,17 +157,21 @@ const GET_LANDING_PAGE = /* GraphQL */ `
 
   query GET_LANDING_PAGE {
     landingPage {
-      ...logo
-      ...header
-      ...sectionAboutProject
-      ...sectionTech
-      ...sectionConcepts
-      ...sectionModules
-      ...sectionAgenda
-      ...pricingBox
-      ...sectionAboutUs
-      ...sectionReviews
-      ...sectionFaq
+      data {
+        attributes {
+          ...logo
+          ...header
+          ...sectionAboutProject
+          ...sectionTech
+          ...sectionConcepts
+          ...sectionModules
+          ...sectionAgenda
+          ...pricingBox
+          ...sectionAboutUs
+          ...sectionReviews
+          ...sectionFaq
+        }
+      }
     }
   }
 `

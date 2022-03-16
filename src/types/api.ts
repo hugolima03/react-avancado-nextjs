@@ -1,6 +1,10 @@
 export type LogoProps = {
-  alternativeText: string
-  url: string
+  data: {
+    attributes: {
+      alternativeText: string
+      url: string
+    }
+  }
 }
 
 export type HeaderProps = {
@@ -11,8 +15,12 @@ export type HeaderProps = {
     url: string
   }
   image: {
-    alternativeText: string
-    url: string
+    data: {
+      attributes: {
+        alternativeText: string
+        url: string
+      }
+    }
   }
 }
 
@@ -20,15 +28,23 @@ export type SectionAboutProjectProps = {
   title: string
   description: string
   image: {
-    alternativeText: string
-    url: string
+    data: {
+      attributes: {
+        alternativeText: string
+        url: string
+      }
+    }
   }
 }
 
 export type TechIcon = {
   title: string
   icon: {
-    url: string
+    data: {
+      attributes: {
+        url: string
+      }
+    }
   }
 }
 
@@ -74,10 +90,14 @@ export type SocialLink = {
   url: string
 }
 
-export type Author = {
+export type AuthorAttributes = {
   photo: {
-    alternativeText: string
-    url: string
+    data: {
+      attributes: {
+        alternativeText: string
+        url: string
+      }
+    }
   }
   name: string
   role: string
@@ -85,17 +105,25 @@ export type Author = {
   description: string
 }
 
+export type Author = {
+  attributes: AuthorAttributes
+}
+
 export type SectionAboutUsProps = {
   title: string
-  authors: Author[]
+  authors: { data: Author[] }
 }
 
 export type Review = {
   name: string
-  text: string
+  review: string
   photo: {
-    url: string
-    alternativeText: string
+    data: {
+      attributes: {
+        url: string
+        alternativeText: string
+      }
+    }
   }
 }
 
@@ -112,7 +140,7 @@ export type SectionFaqProps = {
   }[]
 }
 
-export type LandingPageProps = {
+export type LandingPageAttributes = {
   logo: LogoProps
   header: HeaderProps
   sectionAboutProject: SectionAboutProjectProps
@@ -124,4 +152,14 @@ export type LandingPageProps = {
   sectionAboutUs: SectionAboutUsProps
   sectionReviews: SectionReviewsProps
   sectionFaq: SectionFaqProps
+}
+
+export type LandingPageProps = {
+  data: {
+    landingPage: {
+      data: {
+        attributes: LandingPageAttributes
+      }
+    }
+  }
 }

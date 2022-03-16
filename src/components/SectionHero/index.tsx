@@ -21,7 +21,6 @@ const SectionHero = ({ logo, header }: Props) => (
   <S.Wrapper>
     <Container>
       <Logo {...logo} />
-
       <S.Content>
         <S.TextBlock>
           <S.Title>{header.title}</S.Title>
@@ -34,8 +33,8 @@ const SectionHero = ({ logo, header }: Props) => (
         </S.TextBlock>
 
         <S.Image
-          src={getImageUrl(header.image.url)}
-          alt={header.image.alternativeText}
+          src={getImageUrl(header.image.data.attributes.url)}
+          alt={header.image.data.attributes.alternativeText}
         />
       </S.Content>
     </Container>
