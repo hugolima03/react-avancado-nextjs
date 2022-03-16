@@ -16,7 +16,7 @@ const SectionAboutProject = ({
     <Container>
       <S.Container>
         <S.Image
-          src={getImageUrl(image.data.attributes.url)}
+          src="https://reactavancado.com.br/_next/static/images/project-db6268e4a60540001885db9efb55013f.png.webp"
           alt={image.data.attributes.alternativeText}
           loading="lazy"
         />
